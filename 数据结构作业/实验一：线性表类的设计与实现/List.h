@@ -1,8 +1,6 @@
-#pragma once
 #include <iostream>
-#include"LinearList.h"
+#include<stdlib.h>
 using namespace std;
-
  template<class T>
 struct LinkNode
 {
@@ -16,7 +14,7 @@ struct LinkNode
 	}
 };
 template<class T>
-class List :public LinearList<T>
+class List //:public LinearList<>
 {
 private:
 	LinkNode<T>* first;
@@ -160,11 +158,11 @@ template<class T>
 void List<T>::output()
 {
 	LinkNode<T>* current = first->link;
-	while (current!=NULL)
+	while (current != NULL)
 	{
-		cout << current->data << endl; 
+		cout << current->data << " ";
 		current = current->link;
-	}
+	}cout << endl;
 }
 template<class T>
 List<T>& List<T>::operator=(List<T>& L)
@@ -233,9 +231,9 @@ struct CircLinkNode
 	CircLinkNode(T d, CircLinkNode<T>* next = NULL) :data(d), link(next) {}
 };
 template<class T>
-class CircList :public LinearList<T>
+/*class CircList :public LinearList<T>
 {
-private:
+	private
 		CircLinkNode<T>* first, * last;
 public:
 	CircList(const T& x);
@@ -251,7 +249,7 @@ public:
 	void setData(int i, T& x);
 	bool Insert(int i, T& x);
 	bool Remove(int i, T& x);
-};
+};*/
 
 
 

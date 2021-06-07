@@ -111,7 +111,6 @@ private:
 public:
 	LinkedStack() :top(NULL) {}
 	~LinkedStack() { makeEmpty(); };//这个最后要加；的吗？？？
-	void makeEmpty();
 	void Push(const T& x);
 	bool Pop(T& x);
 	bool getTop(T& x)const;
@@ -166,12 +165,12 @@ while (top!=NULL)
 return k;
 }
 template<class T>
-ostream& operator<<(ostream& os, SeqStack<T>& s)
+ostream& operator<<(ostream& os, LinkedStack<T>& s)
 {
 	os << "栈中元素个数=" << s.getSize() << endl;
 	LinkNode<T>* p = s.top;
 	int i = 0;
-	while (P!=NULL)
+	while (p!=NULL)
 	{
 		os << ++i << ":" << p->data << endl;
 		p = p->link;

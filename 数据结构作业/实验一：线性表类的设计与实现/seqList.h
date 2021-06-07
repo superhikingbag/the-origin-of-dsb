@@ -1,10 +1,8 @@
 #include<stdlib.h>
-#include"linearList.h"
 #include <iostream>
-using namespace std;
 const int defaultSize = 100;
 template <class T>
-class SeqList :public LinearList<T> 
+class SeqList //:public LinearList<T> 
 {
 protected:
 	T* data;
@@ -51,6 +49,7 @@ SeqList<T>::SeqList(int sz)
 	{
 		maxsize = sz;
 		last = -1;
+		data = new T[maxsize];
 		if (data == NULL)
 		{
 			cerr << "NMSL内存分配错误" << endl;
@@ -113,7 +112,7 @@ int SeqList<T>::Search(T& x)const
 template <class T>
 int SeqList<T>::Locate(int i)const
 {
-	if(i >= 1 && i <= last + 1)
+	if (i >= 1 && i <= last + 1)
 		return i;
 	else
 	return 0;
@@ -165,8 +164,8 @@ void SeqList<T>::output()
 {
 	cout << "顺序表当前元素最后位置为："<<last << endl;
 	for (int i = 0; i <= last; i++)
-		cout << "#" << i + 1 << ":" << data[i] << endl;
-
+		cout << "#" << i + 1 << ":" << data[i] << " ";
+	cout << endl;
 }
 template <class T>
 SeqList<T>SeqList<T>::operator=(SeqList<T>& L1)
@@ -186,20 +185,6 @@ SeqList<T>SeqList<T>::operator=(SeqList<T>& L1)
 		data[i - 1] = value;
 	}
 }
-/*void union(SeqList<int>& LA, SeqList<int>& LB)//合并LA和LB，存于A
-{
-	int n = LA.Length(), m = LB.Length(), i, k, x;
-	for (int i; i <= m; i++)
-	{
-		LB.getData(i, x);
-		k = LA.Search(x);
-		if (k == 0)
-		{
-			LA.Insert(n, x);
-			n++;
-		}
-	}
-}*/
 void Intersection(SeqList<int>& LA, SeqList<int>& LB)//交集LA和LB，存于A
 {
 	int n = LA.Length(), m = LB.Length(), i=1, k, x;

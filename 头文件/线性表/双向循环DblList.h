@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include"LinearList.h"
 using namespace std;
 template<class T>
 struct DblNode
@@ -53,7 +54,7 @@ DblNode<T>* DblList<T>::Search(const T& x)
 	DblNode<T>* current = first->rLink;
 	while (current != first && current->data != x)current = current->rLink;
 	if (current != first)return current;
-	else return NILL;
+	else return NULL;
 }
 template<class T>
 DblNode<T>* DblList<T>::Located(int i, int d)
@@ -83,7 +84,7 @@ bool DblList<T>::Insert(int i, const T& x, int d)
 		newNode->lLink = current.lLink;
 		current.lLink = newNode;
 		newNode->lLink->rLink = newNode;
-		newNode->rLink=current£»
+		newNode->rLink = current;
 	}
 	else 
 	{
