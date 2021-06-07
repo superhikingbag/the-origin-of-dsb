@@ -5,7 +5,7 @@
 #include"List.h"//用时带上List.h这个头文件
 using namespace std;
 template<class T>
-class Stack 
+class Stack //栈的抽象基类
 {public:
 	Stack() {};
 	virtual void Push(const T& x) = 0;
@@ -104,7 +104,7 @@ bool POp(DualStack& DS, T x, intd)
 }*/
 /*****************************************/
 template<class T>
-class LinkedStack :public Stack<T>
+class LinkedStack :public Stack<T>//链式栈
 {
 private:
 	LinkNode<T>* top;
